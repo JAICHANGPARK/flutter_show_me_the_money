@@ -7,6 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -34,7 +35,35 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: Icon(Icons.add),
             tooltip: "Add Something",
-            onPressed: (){},
+            onPressed: (){
+              showDialog(context: context,
+              builder: (context) => AlertDialog(
+                title: Text("Add"),
+                content: Container(
+                  height: 100.0,
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Icon(Icons.attach_money),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: MaterialButton(
+                              onPressed: (){},
+                              child: Text("Income"),
+                            ),
+                          )
+
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ));
+            },
           )
         ],
       ),
@@ -45,10 +74,20 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             Expanded(
               child: ListTile(
+                title: Text("Balance:"),
+                subtitle: Text("\$230"),
+              ),
+            ),
+            Expanded(
+              child: ListTile(
                 title: Text("Expense:"),
                 subtitle: Text("\$230"),
               ),
-            )
+            ),
+            Expanded(
+              child: IconButton(icon: Icon(Icons.remove_red_eye), onPressed: null)
+            ),
+            
           ],
         ),
       ),
