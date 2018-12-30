@@ -22,6 +22,64 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+Widget addDialog = AlertDialog(
+  title: Text("Add"),
+  content: Container(
+    height: 160.0,
+    child: Column(
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Icon(Icons.attach_money),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: MaterialButton(
+                onPressed: (){},
+                child: Text("Income"),
+              ),
+            )
+          ],
+        ),
+
+        Row(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Icon(Icons.money_off),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: MaterialButton(
+                onPressed: (){},
+                child: Text("Expense"),
+              ),
+            )
+          ],
+        ),
+
+        Row(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Icon(Icons.dashboard),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: MaterialButton(
+                onPressed: (){},
+                child: Text("Category"),
+              ),
+            )
+          ],
+        ),
+      ],
+    ),
+  ),
+);
+
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
@@ -37,35 +95,28 @@ class _HomePageState extends State<HomePage> {
             tooltip: "Add Something",
             onPressed: (){
               showDialog(context: context,
-              builder: (context) => AlertDialog(
-                title: Text("Add"),
-                content: Container(
-                  height: 100.0,
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Icon(Icons.attach_money),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: MaterialButton(
-                              onPressed: (){},
-                              child: Text("Income"),
-                            ),
-                          )
-
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              ));
+              builder: (context) => addDialog);
             },
           )
         ],
+      ),
+
+      body: Stack(
+        children: <Widget>[
+          Center(
+
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+
+              children: <Widget>[
+              Icon(Icons.account_balance_wallet, size: 64.0, color: Colors.grey,),
+              Text("waste no meney!" , style: TextStyle(fontSize: 16.0),),
+               
+              ],
+            ),
+          )
+        ],
+
       ),
 
       bottomNavigationBar: Container(
