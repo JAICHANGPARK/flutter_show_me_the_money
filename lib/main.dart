@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
+
 }
 
 Widget addDialog = AlertDialog(
@@ -81,8 +82,14 @@ Widget addDialog = AlertDialog(
 );
 
 class _HomePageState extends State<HomePage> {
+
+  
   @override
   Widget build(BuildContext context) {
+
+    final mediaQuerydata = MediaQuery.of(context);
+    final size = mediaQuerydata.size.width;
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Flutter cash"),
@@ -111,7 +118,7 @@ class _HomePageState extends State<HomePage> {
               children: <Widget>[
               Icon(Icons.account_balance_wallet, size: 64.0, color: Colors.grey,),
               Text("waste no meney!" , style: TextStyle(fontSize: 16.0),),
-               
+
               ],
             ),
           )
