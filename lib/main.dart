@@ -41,6 +41,16 @@ class _HomePageState extends State<HomePage> {
 
       bottomNavigationBar: Container(
         color: Colors.white,
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: ListTile(
+                title: Text("Expense:"),
+                subtitle: Text("\$230"),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
